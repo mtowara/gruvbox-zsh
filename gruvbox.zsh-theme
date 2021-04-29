@@ -88,14 +88,14 @@ prompt_end() {
 
 # Context: user@hostname (who am I and where am I)
 prompt_context() {
-  # if [[ "$USER" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then
-    # prompt_segment 237 7 "%(!.%{%F{3}%}.)%n@%m"
-  # fi
-  case "$OSTYPE" in
-    darwin*)  OS_LOGO="\ue29e" ;; 
-    linux*)   OS_LOGO="\ue712" ;;
-  esac
-  prompt_segment 237 7 $OS_LOGO
+  if [[ "$USER" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then
+    prompt_segment 237 7 "%(!.%{%F{3}%}.)%n@%m"
+  fi
+  #case "$OSTYPE" in
+  #  darwin*)  OS_LOGO="\ue29e" ;; 
+  #  linux*)   OS_LOGO="\ue712" ;;
+  #esac
+  #prompt_segment 237 7 $OS_LOGO
 }
 
 # Git: branch/detached head, dirty status
